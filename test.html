@@ -1250,7 +1250,7 @@
                 { q: "下雨的 raining, 晴朗的 _____.", a: "sunny", exp: "天氣。", tag: "單字" },
                 { q: "Where ___ you going?", a: "are", exp: "Where are you...", tag: "文法" },
                 { q: "The cat is ___ the box. (在...裡面)", a: "in", exp: "介係詞。", tag: "文法" },
-                { q: "Monkey likes _____.", a: "bananas", exp: "猴子愛香蕉。", tag: "常識" },
+                { q: "Monkey likes _____ (香蕉).", a: "bananas", exp: "猴子愛香蕉。", tag: "常識" },
                 { q: "Look! He is _____ (跑).", a: "running", exp: "進行式。", tag: "文法" },
                 { q: "Do you like _____ (披薩)?", a: "pizza", exp: "食物。", tag: "單字" },
                 { q: "It is _____ (熱) today.", a: "hot", exp: "天氣。", tag: "單字" },
@@ -1510,24 +1510,6 @@
                 { q: "The cat is _____ (在...下面) the table.", a: "under", exp: "在下面=under。", tag: "介系詞" },
                 { q: "The book is _____ (在...上面) the desk.", a: "on", exp: "在上面=on。", tag: "介系詞" },
                 { q: "The ball is _____ (在...裡面) the box.", a: "in", exp: "在裡面=in。", tag: "介系詞" },
-                // Unit 1: Phonics — C (hard /k/ vs soft /s/)
-                { q: "'Cap' and 'cup' have a _____ c sound (like /k/).", a: "hard", exp: "c在a/o/u前發/k/，是hard c。", tag: "phonics" },
-                { q: "'Cell' and 'city' have a _____ c sound (like /s/).", a: "soft", exp: "c在e/i/y前發/s/，是soft c。", tag: "phonics" },
-                { q: "The word 'cute' has a _____ c sound.", a: "hard", exp: "cute的c在u前，發/k/，是hard c。", tag: "phonics" },
-                { q: "The word 'trace' has a _____ c sound.", a: "soft", exp: "trace的c在e前，發/s/，是soft c。", tag: "phonics" },
-                // Unit 2: Friends Forever — Places
-                { q: "We borrow books at the _____.", a: "library", exp: "圖書館=library。", tag: "場所" },
-                { q: "We see art and history exhibits at the _____.", a: "museum", exp: "博物館=museum。", tag: "場所" },
-                { q: "We drink coffee and chat at the _____.", a: "coffee shop", exp: "咖啡廳=coffee shop。", tag: "場所" },
-                { q: "We watch films at the _____.", a: "movie theater", exp: "電影院=movie theater。", tag: "場所" },
-                { q: "We eat street food and play games at the _____.", a: "night market", exp: "夜市=night market。", tag: "場所" },
-                { q: "We exercise and play sports at the _____.", a: "sports center", exp: "運動中心=sports center。", tag: "場所" },
-                // Unit 2: Phonics — G (hard /g/ vs soft /dʒ/)
-                { q: "'Gate', 'goat' and 'gum' have a _____ g sound (like /g/).", a: "hard", exp: "g在a/o/u前發/g/，是hard g。", tag: "phonics" },
-                { q: "'Gym' and 'giant' have a _____ g sound (like /dʒ/).", a: "soft", exp: "g在e/i/y前發/dʒ/，是soft g。", tag: "phonics" },
-                { q: "The word 'bridge' has a _____ g sound.", a: "soft", exp: "bridge的g在e前，發/dʒ/，是soft g。", tag: "phonics" },
-                { q: "The word 'frog' has a _____ g sound.", a: "hard", exp: "frog的g在字尾，發/g/，是hard g。", tag: "phonics" },
-                { q: "The word 'huge' has a _____ g sound.", a: "soft", exp: "huge的g在e前，發/dʒ/，是soft g。", tag: "phonics" },
             ],
             mcq: [
                 // was/were grammar
@@ -1551,17 +1533,7 @@
                 { q: "Where do you go to watch movies?", a: "Movie theater", o: ["Movie theater", "Museum", "Sports center", "Night market"], exp: "看電影→電影院(movie theater)。", tag: "場所" },
                 { q: "Where do you go to eat street food and play games?", a: "Night market", o: ["Night market", "Sports center", "Movie theater", "Museum"], exp: "吃路邊攤→夜市(night market)。", tag: "場所" },
                 { q: "Where do you go to exercise and play basketball?", a: "Sports center", o: ["Sports center", "Library", "Coffee shop", "Museum"], exp: "運動→運動中心(sports center)。", tag: "場所" },
-                // Phonics — C
-                { q: "Which word has a soft c sound (like /s/)?", a: "city", o: ["city", "cap", "cut", "cot"], exp: "city→c在i前，soft c，發/s/。", tag: "phonics" },
-                { q: "Which word has a hard c sound (like /k/)?", a: "cup", o: ["cup", "cell", "trace", "lacy"], exp: "cup→c在u前，hard c，發/k/。", tag: "phonics" },
-                { q: "The 'c' in 'picnic' sounds like ___.", a: "/k/ (hard c)", o: ["/k/ (hard c)", "/s/ (soft c)", "/tʃ/", "silent"], exp: "picnic的c在n後，hard c，發/k/。", tag: "phonics" },
-                { q: "The 'c' in 'lacy' sounds like ___.", a: "/s/ (soft c)", o: ["/s/ (soft c)", "/k/ (hard c)", "/tʃ/", "silent"], exp: "lacy的c在y前，soft c，發/s/。", tag: "phonics" },
-                { q: "Which word has TWO c sounds, both /k/?", a: "cackle", o: ["cackle", "city", "trace", "cell"], exp: "cackle兩個c都在a/k前，都是hard c /k/。", tag: "phonics" },
-                // Phonics — G
-                { q: "Which word has a soft g sound (like /dʒ/)?", a: "giant", o: ["giant", "gate", "gum", "goat"], exp: "giant→g在i前，soft g，發/dʒ/。", tag: "phonics" },
-                { q: "Which word has a hard g sound (like /g/)?", a: "frog", o: ["frog", "gym", "age", "huge"], exp: "frog→g在結尾，hard g，發/g/。", tag: "phonics" },
-                { q: "The 'g' in 'bridge' sounds like ___.", a: "/dʒ/ (soft g)", o: ["/dʒ/ (soft g)", "/g/ (hard g)", "/ʒ/", "silent"], exp: "bridge的g在e前，soft g，發/dʒ/。", tag: "phonics" },
-                { q: "The 'g' in 'peg' sounds like ___.", a: "/g/ (hard g)", o: ["/g/ (hard g)", "/dʒ/ (soft g)", "/ʒ/", "silent"], exp: "peg的g在字尾，hard g，發/g/。", tag: "phonics" },
+                { q: "Where do you go to drink coffee and chat with friends?", a: "Coffee shop", o: ["Coffee shop", "Library", "Museum", "Sports center"], exp: "喝咖啡聊天→咖啡廳(coffee shop)。", tag: "場所" },
                 // Conversation
                 { q: "A: Where were you last night? B: _____ at home.", a: "I was", o: ["I was", "I were", "I am", "I be"], exp: "I用was回答。", tag: "會話" },
                 { q: "A: Was Amy at the museum? B: Yes, _____ was.", a: "she", o: ["she", "he", "they", "we"], exp: "Amy是she，簡答she was。", tag: "會話" },
@@ -1590,17 +1562,6 @@
                         { q: "What food did they eat at the night market?", a: "Stinky tofu and oyster noodles", o: ["Stinky tofu and oyster noodles", "Pizza and hamburgers", "Sushi and ramen", "Fried chicken and fries"], exp: "They ate stinky tofu and oyster noodles." },
                         { q: "Where will they go on Saturday?", a: "To the movie theater", o: ["To the movie theater", "To the library", "To the night market", "To the sports center"], exp: "Ben said: Let's go to the movie theater!" }
                     ]
-                },
-                {
-                    title: "The Sounds of C and G",
-                    article: `In English, the letters C and G can each make two different sounds.\nThe letter C makes a hard sound /k/ when it comes before a, o, u, or a consonant. Examples: cat, cup, cot, cap, cute, collar, picnic, cackle.\nThe letter C makes a soft sound /s/ when it comes before e, i, or y. Examples: cell, city, lacy, trace.\nThe letter G makes a hard sound /g/ when it comes before a, o, u, or a consonant. Examples: gate, goat, gum, frog, peg.\nThe letter G makes a soft sound /dʒ/ when it comes before e, i, or y. Examples: gym, giant, bridge, age, huge.\nThe trick is easy: look at the letter AFTER C or G. If it is e, i, or y, the sound is soft. Otherwise, the sound is usually hard.`,
-                    qs: [
-                        { q: "When does the letter C make the hard /k/ sound?", a: "Before a, o, u, or a consonant", o: ["Before a, o, u, or a consonant", "Before e, i, or y", "Always", "Never"], exp: "Hard c comes before a, o, u, or a consonant." },
-                        { q: "Which word has a soft c sound /s/?", a: "city", o: ["city", "cup", "cat", "cot"], exp: "city: c before i → soft c /s/." },
-                        { q: "When does the letter G make the soft /dʒ/ sound?", a: "Before e, i, or y", o: ["Before e, i, or y", "Before a, o, u", "Always", "At the end of words"], exp: "Soft g comes before e, i, or y." },
-                        { q: "Which word has a hard g sound /g/?", a: "gate", o: ["gate", "gym", "giant", "age"], exp: "gate: g before a → hard g /g/." },
-                        { q: "What is the trick to tell if C or G is hard or soft?", a: "Look at the letter AFTER C or G", o: ["Look at the letter AFTER C or G", "Look at the letter BEFORE C or G", "Count the letters in the word", "Check the meaning of the word"], exp: "The key rule: look at the letter that comes AFTER C or G." }
-                    ]
                 }
             ],
             word: [
@@ -1608,16 +1569,12 @@
                 { q: "My friends _____ at the night market two hours ago.", a: "were", exp: "friends複數，用were。", tag: "應用" },
                 { q: "Was she at the museum? Yes, she _____.", a: "was", exp: "簡短肯定回答she was。", tag: "應用" },
                 { q: "Were they at the coffee shop? No, they _____.", a: "weren't", exp: "簡短否定回答they weren't。", tag: "應用" },
-                { q: "The word 'collar' — is the 'c' hard or soft?", a: "hard", exp: "collar的c在o前，發/k/，是hard c。", tag: "phonics" },
-                { q: "The word 'age' — is the 'g' hard or soft?", a: "soft", exp: "age的g在e前，發/dʒ/，是soft g。", tag: "phonics" },
                 { q: "We see _____ other every day at school.", a: "each", exp: "each other=互相。", tag: "應用" },
                 { q: "The cat is _____ the box. (在...裡面)", a: "in", exp: "在裡面=in。", tag: "應用" },
                 { q: "Where do you go to borrow books? I go to the _____.", a: "library", exp: "圖書館=library。", tag: "應用" },
-                { q: "The word 'gum' — is the 'g' hard or soft?", a: "hard", exp: "gum的g在u前，發/g/，是hard g。", tag: "phonics" },
                 { q: "I have a new _____ (鄰居). She is very nice.", a: "neighbor", exp: "鄰居=neighbor。", tag: "應用" },
                 { q: "Where were you _____ (昨天)?", a: "yesterday", exp: "昨天=yesterday。", tag: "應用" },
                 { q: "Let's go to the _____ to watch a new movie.", a: "movie theater", exp: "電影院=movie theater。", tag: "應用" },
-                { q: "The word 'cackle' has _____ hard c sounds.", a: "2", exp: "cackle: c(k)+ck(k)，兩個hard c /k/。", tag: "phonics" },
                 { q: "My shoe is _____ (在...下面) the bed.", a: "under", exp: "在下面=under。", tag: "應用" },
             ],
             listening: [
@@ -1626,11 +1583,11 @@
                 { speak: "My neighbor is very friendly. We help each other every day.", q: "說話者和誰互相幫忙？", a: "鄰居 (neighbor)", o: ["鄰居 (neighbor)", "老師 (teacher)"], exp: "my neighbor...help each other。", tag: "聽力" },
                 { speak: "Was she at the museum yesterday? No, she wasn't. She was at the coffee shop.", q: "她昨天在哪裡？", a: "咖啡廳 (coffee shop)", o: ["咖啡廳 (coffee shop)", "博物館 (museum)"], exp: "she wasn't at the museum → she was at the coffee shop。", tag: "聽力" },
                 { speak: "The book is on the desk, and the pencil is under the chair.", q: "鉛筆在哪裡？", a: "椅子下面 (under the chair)", o: ["椅子下面 (under the chair)", "桌子上面 (on the desk)"], exp: "pencil is under the chair。", tag: "聽力" },
-                { speak: "The word 'city' has a soft c sound, like /s/.", q: "city的c發什麼音？", a: "/s/ (soft c)", o: ["/s/ (soft c)", "/k/ (hard c)"], exp: "city: c before i → soft c /s/。", tag: "聽力" },
-                { speak: "The word 'cap' has a hard c sound, like /k/.", q: "cap的c發什麼音？", a: "/k/ (hard c)", o: ["/k/ (hard c)", "/s/ (soft c)"], exp: "cap: c before a → hard c /k/。", tag: "聽力" },
                 { speak: "Let's go to the sports center to play basketball after school.", q: "他們放學後要去哪裡？", a: "運動中心 (sports center)", o: ["運動中心 (sports center)", "圖書館 (library)"], exp: "go to the sports center。", tag: "聽力" },
-                { speak: "The word 'giant' has a soft g sound, like /dʒ/.", q: "giant的g發什麼音？", a: "/dʒ/ (soft g)", o: ["/dʒ/ (soft g)", "/g/ (hard g)"], exp: "giant: g before i → soft g /dʒ/。", tag: "聽力" },
-                { speak: "The word 'gate' has a hard g sound, like /g/.", q: "gate的g發什麼音？", a: "/g/ (hard g)", o: ["/g/ (hard g)", "/dʒ/ (soft g)"], exp: "gate: g before a → hard g /g/。", tag: "聽力" },
+                { speak: "Where was Kevin yesterday? He was at the movie theater with his neighbor.", q: "Kevin昨天在哪裡？", a: "電影院 (movie theater)", o: ["電影院 (movie theater)", "夜市 (night market)"], exp: "He was at the movie theater。", tag: "聽力" },
+                { speak: "Were you at the museum last night? No, I wasn't. I was at home.", q: "說話者昨晚在哪裡？", a: "家裡 (home)", o: ["家裡 (home)", "博物館 (museum)"], exp: "wasn't at museum → was at home。", tag: "聽力" },
+                { speak: "Amy and Ben were at the coffee shop two hours ago. They were studying together.", q: "他們在做什麼？", a: "一起念書 (studying)", o: ["一起念書 (studying)", "喝咖啡聊天 (chatting)"], exp: "they were studying together。", tag: "聽力" },
+                { speak: "Was the night market far from here? No, it wasn't. It was just around the corner.", q: "夜市遠嗎？", a: "不遠 (not far)", o: ["不遠 (not far)", "很遠 (very far)"], exp: "wasn't far → just around the corner。", tag: "聽力" },
                 { speak: "We weren't at school yesterday. We were at the museum.", q: "他們昨天去了哪裡？", a: "博物館 (museum)", o: ["博物館 (museum)", "學校 (school)"], exp: "weren't at school → were at the museum。", tag: "聽力" },
                 { speak: "The toy is in the box. The box is under the table.", q: "箱子在哪裡？", a: "桌子下面 (under the table)", o: ["桌子下面 (under the table)", "桌子上面 (on the table)"], exp: "box is under the table。", tag: "聽力" },
             ],
@@ -1827,6 +1784,75 @@
                 { q: "台灣五大地形是哪五種？", a: "山地、丘陵、台地、平原、盆地", exp: "山地面積最廣，平原是最重要的農業區。", tag: "應用" },
                 { q: "台北盆地和嘉南平原分別屬於哪種地形？", a: "台北盆地→盆地；嘉南平原→平原", exp: "盆地四周高中間低；平原地勢低平廣闊。", tag: "應用" },
                 { q: "鶯歌的陶瓷和阿里山的高山茶，說明了什麼道理？", a: "特產與自然環境（或當地技藝）有密切關係", exp: "地形、氣候、土壤影響各地的特產種類。", tag: "應用" },
+            ],
+            tf: [
+                // ── 單元一：家鄉的交通 ── 家鄉的運輸 ──
+                { q: "在陸地上行駛的運輸方式稱為「陸運」。", a: "O", exp: "陸運包含公路、鐵路等。", tag: "家鄉的運輸" },
+                { q: "空運的速度比陸運和海運都慢。", a: "X", exp: "空運速度最快，但費用也最高。", tag: "家鄉的運輸" },
+                { q: "海運適合大量貨物的長途運輸，因為它費用低、載運量大。", a: "O", exp: "海運是大宗貨物跨海運輸的首選。", tag: "家鄉的運輸" },
+                { q: "高鐵是台灣速度最快的陸上運輸工具。", a: "O", exp: "高鐵從台北到左營約90分鐘。", tag: "家鄉的運輸" },
+                { q: "台灣縱貫鐵路主要連接東西部。", a: "X", exp: "縱貫線是南北向，連接基隆到高雄。", tag: "家鄉的運輸" },
+                { q: "運輸可以分為「客運」和「貨運」兩大類。", a: "O", exp: "客運載人，貨運載物。", tag: "家鄉的運輸" },
+                // ── 單元一：家鄉的交通 ── 訊息的傳遞 ──
+                { q: "烽火是古代傳遞緊急消息的方式之一。", a: "O", exp: "長城上燒狼糞冒黑煙就是烽火。", tag: "訊息的傳遞" },
+                { q: "電話只能傳遞文字，不能傳遞聲音。", a: "X", exp: "電話最主要的功能是傳遞聲音。", tag: "訊息的傳遞" },
+                { q: "網路是現代傳遞訊息最快的工具，可同時傳送文字、圖片和影音。", a: "O", exp: "網路是現代最全面的通訊工具。", tag: "訊息的傳遞" },
+                { q: "電視和廣播都是雙向溝通的工具，觀眾可以立即回應。", a: "X", exp: "電視和廣播是單向傳播，觀眾無法即時回應。", tag: "訊息的傳遞" },
+                { q: "郵局負責信件和包裹的寄送服務。", a: "O", exp: "中華郵政提供郵遞服務。", tag: "訊息的傳遞" },
+                // ── 單元二：家鄉風情畫 ──
+                { q: "廟宇、老街屬於人文景觀。", a: "O", exp: "人類建造的景觀就是人文景觀。", tag: "家鄉的風貌" },
+                { q: "山脈、河流屬於人文景觀。", a: "X", exp: "山脈、河流是自然形成的，屬於自然景觀。", tag: "家鄉的風貌" },
+                { q: "家鄉的特產通常與當地的氣候和地形密切相關。", a: "O", exp: "環境決定特產種類，如靠海多海鮮、山區多茶葉。", tag: "家鄉的特產" },
+                { q: "鶯歌以高山茶聞名，阿里山以陶瓷聞名。", a: "X", exp: "鶯歌以陶瓷著名，阿里山以高山茶著名。", tag: "家鄉的特產" },
+                { q: "手工藝品是以特殊技藝製作的地方特色物品。", a: "O", exp: "工藝品代表地方文化特色。", tag: "家鄉的特產" },
+            ],
+            reading: [
+                {
+                    title: "家鄉的交通運輸",
+                    article: "交通運輸讓人和物品得以移動，是家鄉發展的重要基礎。運輸依環境不同，分為陸運、水運和空運三大類。陸運在陸地上行駛，包括公路上的汽車、機車，以及鐵路上的火車和高鐵；水運在水面上行駛，包括河運和海運；空運在空中飛行，以飛機為主。\n各種運輸方式各有特色：空運速度最快，但費用最高；海運費用低、載運量大，適合大量貨物的跨海運輸；陸運最為普遍，高鐵更讓台灣形成「一日生活圈」。運輸可以依目的分為「客運」（載人）和「貨運」（載物）兩大類。",
+                    tag: "閱讀",
+                    qs: [
+                        { q: "下列哪種運輸方式費用最低、載運量最大？", a: "海運", o: ["海運", "空運", "高鐵", "公路"], exp: "海運適合大量貨物跨海運輸。", tag: "家鄉的運輸" },
+                        { q: "高鐵屬於哪種運輸方式？", a: "陸運", o: ["陸運", "水運", "空運", "海運"], exp: "高鐵在陸地上行駛，屬陸運。", tag: "家鄉的運輸" },
+                        { q: "「一日生活圈」主要因哪種交通建設而實現？", a: "高鐵", o: ["高鐵", "公路", "輪船", "飛機"], exp: "高鐵大幅縮短南北交通時間。", tag: "家鄉的運輸" },
+                        { q: "「貨運」的主要目的是？", a: "載物", o: ["載物", "載人", "觀光", "通訊"], exp: "貨運是載送物品；客運是載送旅客。", tag: "家鄉的運輸" },
+                        { q: "以下哪種運輸方式速度最快？", a: "空運", o: ["空運", "海運", "鐵路", "公路"], exp: "空運以飛機飛行，速度最快。", tag: "家鄉的運輸" }
+                    ]
+                },
+                {
+                    title: "家鄉的特產與風貌",
+                    article: "家鄉的風貌可以分為「自然景觀」和「人文景觀」。自然景觀包含山脈、河流、海岸等大自然形成的景色；人文景觀則是人類建造或創造的，例如廟宇、老街、古蹟等。\n家鄉的特產，是指一個地方最具代表性的物品或食物，通常和當地的自然環境密切相關。新北市鶯歌以燒製陶瓷聞名；嘉義阿里山因高山冷涼氣候適合茶樹生長，盛產高山茶；靠近海邊的地方，漁產豐富，海鮮成為特產。\n愛護家鄉，要從保持環境整潔做起，也要珍視並保存傳統文化，讓後代子孫能了解家鄉的歷史。",
+                    tag: "閱讀",
+                    qs: [
+                        { q: "廟宇和老街屬於哪種景觀？", a: "人文景觀", o: ["人文景觀", "自然景觀", "生態景觀", "地理景觀"], exp: "人類建造的景觀稱為人文景觀。", tag: "家鄉的風貌" },
+                        { q: "鶯歌最著名的特產是？", a: "陶瓷", o: ["陶瓷", "高山茶", "海鮮", "米粉"], exp: "鶯歌以燒製陶瓷聞名百年。", tag: "家鄉的特產" },
+                        { q: "阿里山高山茶能成為特產，主要原因是？", a: "高山冷涼氣候適合茶樹", o: ["高山冷涼氣候適合茶樹", "靠近海邊水分充足", "政府規定種茶", "外國人喜歡"], exp: "高山低溫、日夜溫差大，有利茶葉生長。", tag: "家鄉的特產" },
+                        { q: "「人文景觀」和「自然景觀」最大的差異是？", a: "是否由人類創造或建造", o: ["是否由人類創造或建造", "顏色的深淺", "面積的大小", "是否在山上"], exp: "人文景觀是人造的，自然景觀是天然的。", tag: "家鄉的風貌" },
+                        { q: "愛護家鄉最基本的行動是？", a: "保持環境整潔", o: ["保持環境整潔", "禁止外地人進入", "大量開採資源", "拆除舊建築"], exp: "從不亂丟垃圾開始，愛護家鄉環境。", tag: "愛我家鄉" }
+                    ]
+                }
+            ],
+            matching: [
+                { term: "陸運", match: "在陸地上行駛的運輸方式，包含公路和鐵路", tag: "家鄉的運輸" },
+                { term: "水運", match: "在水面上行駛的運輸方式，包含河運與海運", tag: "家鄉的運輸" },
+                { term: "空運", match: "在空中飛行的運輸方式，速度最快", tag: "家鄉的運輸" },
+                { term: "海運", match: "費用低、載運量大，適合大宗貨物跨海運送", tag: "家鄉的運輸" },
+                { term: "高鐵", match: "台灣速度最快的陸上運輸工具", tag: "家鄉的運輸" },
+                { term: "縱貫線", match: "連接台灣西部基隆到高雄的南北向鐵路幹線", tag: "家鄉的運輸" },
+                { term: "客運", match: "以載送旅客為目的的運輸服務", tag: "家鄉的運輸" },
+                { term: "貨運", match: "以載送物品為目的的運輸服務", tag: "家鄉的運輸" },
+                { term: "烽火", match: "古代用燒火冒煙傳遞緊急訊息的方式", tag: "訊息的傳遞" },
+                { term: "郵局", match: "負責收送信件和包裹的機構", tag: "訊息的傳遞" },
+                { term: "網路", match: "現代最快速、可傳送文字圖片影音的通訊工具", tag: "訊息的傳遞" },
+                { term: "電話", match: "可即時傳遞聲音的雙向通訊工具", tag: "訊息的傳遞" },
+                { term: "廣播", match: "單向傳播聲音訊息，聽眾無法即時回應", tag: "訊息的傳遞" },
+                { term: "自然景觀", match: "山脈、河流、海岸等大自然形成的景色", tag: "家鄉的風貌" },
+                { term: "人文景觀", match: "廟宇、老街、古蹟等由人類創造的景觀", tag: "家鄉的風貌" },
+                { term: "特產", match: "代表一個地方特色的物品或食物", tag: "家鄉的特產" },
+                { term: "鶯歌陶瓷", match: "新北市鶯歌以燒製陶瓷聞名的地方工藝特產", tag: "家鄉的特產" },
+                { term: "阿里山高山茶", match: "嘉義阿里山因高山冷涼氣候孕育的特產", tag: "家鄉的特產" },
+                { term: "工藝品", match: "以手工技藝製作的地方特色物品", tag: "家鄉的特產" },
+                { term: "古蹟", match: "具有歷史價值、受政府保護的建築物", tag: "家鄉的風貌" },
             ],
         };
 
