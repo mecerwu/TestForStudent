@@ -3006,29 +3006,64 @@
                     qObj = { ...qObj, ...pickTopic(topics) };
                 }
             }
-            // 4下: 億以上大數、四邊形、周長與面積、小數
+            // 4下: 小數乘法、周長與面積、等值分數、時間加減、立方公分
             else if (grade === 1) {
                 if (category === 'app') {
                     const topics = [
-                        () => { let w = randInt(10, 30), h = randInt(5, 9); return { q: `長${w}cm寬${h}cm長方形，面積是？`, a: `${w * h}`, exp: `長x寬` }; },
-                        () => { let s = randInt(10, 25); return { q: `邊長${s}cm的正方形，面積是？`, a: `${s * s}`, exp: `邊長平方` }; },
-                        () => { let s = randInt(10, 25); return { q: `邊長${s}cm的正方形，周長是？`, a: `${s * 4}`, exp: `邊長x4` }; },
-                        () => { let w = randInt(8, 20), h = randInt(5, 12); return { q: `長${w}cm寬${h}cm長方形，周長是？`, a: `${(w + h) * 2}`, exp: `(長+寬)x2` }; },
-                        () => { let p = randInt(50, 300), n = randInt(2, 8); return { q: `一件${p}元的衣服，買${n}件要多少錢？`, a: `${p * n}`, exp: `單價x數量` }; },
-                        () => { let total = randInt(200, 800), n = randInt(2, 5); return { q: `${total}元平分給${n}人，每人得？`, a: `${Math.floor(total / n)}`, exp: `÷平分` }; },
-                        () => { let m = randInt(200, 900); return { q: `小明有${m}元，買書花了${randInt(50, m - 50)}元，還剩多少元？`, a: `${m - randInt(50, m - 50)}`, exp: `剩餘` }; }
+                        // ── 小數乘法應用 ──────────────────────────────────────────
+                        () => { let u=parseFloat((randInt(1,9)/10).toFixed(1)),n=randInt(2,9); let a=parseFloat((u*n).toFixed(1)); return { q:`一條繩子長${u}m，買${n}條共幾m？`, a:`${a}`, exp:`${u}×${n}=${a}m`, tag:'小數乘法' }; },
+                        () => { let p=parseFloat((randInt(5,30)/10).toFixed(1)),n=randInt(2,8); let a=parseFloat((p*n).toFixed(1)); return { q:`一個橘子${p}元，買${n}個要幾元？`, a:`${a}`, exp:`${p}×${n}=${a}元`, tag:'小數乘法' }; },
+                        () => { let u=parseFloat((randInt(10,49)/100).toFixed(2)),n=randInt(2,5); let a=parseFloat((u*n).toFixed(2)); return { q:`一袋鹽重${u}kg，${n}袋共重幾kg？`, a:`${a}`, exp:`${u}×${n}=${a}kg`, tag:'小數乘法' }; },
+                        () => { let u=parseFloat((randInt(1,9)/10).toFixed(1)),n=randInt(10,25); let a=parseFloat((u*n).toFixed(1)); return { q:`每人喝${u}L果汁，${n}人共需幾L？`, a:`${a}`, exp:`${u}×${n}=${a}L`, tag:'小數乘法' }; },
+                        () => { let u=parseFloat((randInt(10,49)/100).toFixed(2)),n=randInt(10,20); let a=parseFloat((u*n).toFixed(2)); return { q:`一塊布料長${u}m，${n}塊共幾m？`, a:`${a}`, exp:`${u}×${n}=${a}m`, tag:'小數乘法' }; },
+                        // ── 周長與面積應用 ────────────────────────────────────────
+                        () => { let w=randInt(5,20),h=randInt(3,12); return { q:`長${w}m寬${h}m的草地，四周圍欄需幾m？`, a:`${(w+h)*2}`, exp:`(${w}+${h})×2=${(w+h)*2}m`, tag:'周長與面積' }; },
+                        () => { let s=randInt(5,20); return { q:`邊長${s}cm的正方形花圃，周長是幾cm？`, a:`${s*4}`, exp:`${s}×4=${s*4}cm`, tag:'周長與面積' }; },
+                        () => { let w=randInt(4,15),h=randInt(3,10); return { q:`長${w}m寬${h}m的地板，面積是幾平方公尺？`, a:`${w*h}`, exp:`${w}×${h}=${w*h}平方公尺`, tag:'周長與面積' }; },
+                        () => { let s=randInt(4,12); return { q:`邊長${s}cm的正方形木板，面積是幾平方公分？`, a:`${s*s}`, exp:`${s}×${s}=${s*s}平方公分`, tag:'周長與面積' }; },
+                        () => { let n=randInt(2,8); return { q:`一間教室地板面積${n}平方公尺，等於幾平方公分？`, a:`${n*10000}`, exp:`${n}×10000=${n*10000}平方公分`, tag:'周長與面積' }; },
+                        () => { let bw=randInt(10,20),bh=randInt(8,15),sw=randInt(2,5),sh=randInt(2,5); return { q:`長${bw}m寬${bh}m大長方形，中間挖去長${sw}m寬${sh}m的缺口，剩餘面積是幾平方公尺？`, a:`${bw*bh-sw*sh}`, exp:`${bw*bh}-${sw*sh}=${bw*bh-sw*sh}平方公尺`, tag:'周長與面積' }; },
+                        // ── 等值分數應用 ──────────────────────────────────────────
+                        () => { let n=randInt(1,4),d=randInt(n+1,6),f=randInt(2,4); return { q:`${n}/${d}和${n*f}/${d*f}是等值分數嗎？請回答「是」或「不是」。`, a:`是`, exp:`${n}/${d}和${n*f}/${d*f}是等值分數`, tag:'等值分數' }; },
+                        () => { let ch=[{n:1,d:4,dec:'0.25'},{n:1,d:2,dec:'0.5'},{n:3,d:4,dec:'0.75'},{n:1,d:5,dec:'0.2'},{n:2,d:5,dec:'0.4'}]; let c=ch[randInt(0,4)]; return { q:`${c.n}/${c.d}張紙，用小數表示是多少？`, a:`${c.dec}`, exp:`${c.n}÷${c.d}=${c.dec}`, tag:'等值分數' }; },
+                        () => { let ch=[{dec:'0.25',fr:'1/4'},{dec:'0.5',fr:'1/2'},{dec:'0.75',fr:'3/4'},{dec:'0.2',fr:'1/5'},{dec:'0.4',fr:'2/5'}]; let c=ch[randInt(0,4)]; return { q:`小明喝了${c.dec}L果汁，用最簡分數表示是多少L？`, a:`${c.fr}`, exp:`${c.dec}=${c.fr}`, tag:'等值分數' }; },
+                        // ── 時間加減應用 ──────────────────────────────────────────
+                        () => { let sh=randInt(8,11),sm=randInt(0,4)*10,dh=randInt(1,3),dm=randInt(1,5)*10; let et=sh*60+sm+dh*60+dm,eh=Math.floor(et/60),em=et%60; return { q:`電影${sh}時${sm===0?'整':sm+'分'}開始，片長${dh}小時${dm}分鐘，幾時幾分結束？`, a:`${eh}時${em===0?'整':em+'分'}`, exp:`${sh}時${sm}分+${dh}時${dm}分`, tag:'時間加減' }; },
+                        () => { let eh=randInt(13,18),em=randInt(1,5)*10,dh=randInt(1,3),dm=randInt(1,5)*10; let st=eh*60+em-dh*60-dm,sh=Math.floor(st/60),sm=st%60; return { q:`${eh}時${em}分到家，走路花了${dh}小時${dm}分，幾時幾分出發？`, a:`${sh}時${sm}分`, exp:`${eh}時${em}分-${dh}時${dm}分`, tag:'時間加減' }; },
+                        () => { let oh=randInt(8,11),om=randInt(0,4)*10,ch2=randInt(14,17),cm=randInt(0,5)*10; let diff=ch2*60+cm-oh*60-om,dh=Math.floor(diff/60),dm=diff%60; return { q:`圖書館${oh}時${om===0?'整':om+'分'}開門，${ch2}時${cm===0?'整':cm+'分'}關門，共開放幾小時幾分鐘？`, a:`${dh}小時${dm}分鐘`, exp:`共${diff}分鐘`, tag:'時間加減' }; },
+                        () => { let tot=randInt(3,8)*60+randInt(1,5)*10; let dh=Math.floor(tot/60),dm=tot%60; return { q:`${tot}分鐘等於幾小時幾分鐘？`, a:`${dh}小時${dm}分鐘`, exp:`${tot}÷60=${dh}小時${dm}分鐘`, tag:'時間加減' }; },
+                        () => { let sh=randInt(8,12),sm=randInt(0,4)*10,dh=randInt(1,2),dm=randInt(1,4)*10; let et=sh*60+sm+dh*60+dm,eh=Math.floor(et/60),em=et%60; return { q:`小明${sh}時${sm===0?'整':sm+'分'}開始寫作業，寫了${dh}小時${dm}分鐘，幾時幾分寫完？`, a:`${eh}時${em===0?'整':em+'分'}`, exp:`${sh}時${sm}分+${dh}時${dm}分`, tag:'時間加減' }; },
+                        // ── 體積應用 ──────────────────────────────────────────────
+                        () => { let l=randInt(3,10),w=randInt(2,8),h=randInt(2,6); return { q:`長${l}cm、寬${w}cm、高${h}cm的長方體，體積是幾立方公分？`, a:`${l*w*h}`, exp:`${l}×${w}×${h}=${l*w*h}立方公分`, tag:'立方公分' }; },
+                        () => { let s=randInt(3,8); return { q:`邊長${s}cm的正方體，體積是幾立方公分？`, a:`${s*s*s}`, exp:`${s}×${s}×${s}=${s*s*s}立方公分`, tag:'立方公分' }; },
+                        () => { let l1=randInt(4,8),w1=randInt(3,5),h1=randInt(2,4),l2=randInt(2,4),w2=randInt(2,3),h2=randInt(1,3); return { q:`兩個長方體疊在一起，第一個${l1}×${w1}×${h1}cm，第二個${l2}×${w2}×${h2}cm，合計體積是多少立方公分？`, a:`${l1*w1*h1+l2*w2*h2}`, exp:`${l1*w1*h1}+${l2*w2*h2}=${l1*w1*h1+l2*w2*h2}`, tag:'立方公分' }; },
                     ];
                     qObj = { ...qObj, ...pickTopic(topics) };
                 } else {
                     const topics = [
-                        () => { let a = randInt(1, 9) / 10, b = randInt(1, 9) / 10; return { q: `${a} + ${b} = ?`, a: `${parseFloat((a + b).toFixed(1))}`, exp: "小數加法" }; },
-                        () => { let a = randInt(2, 9) / 10, b = randInt(1, a * 10 - 1) / 10; return { q: `${a} - ${b} = ?`, a: `${parseFloat((a - b).toFixed(1))}`, exp: "小數減法" }; },
-                        () => { let w = randInt(5, 15), h = randInt(5, 15); return { q: `長${w}、寬${h}的長方形周長？`, a: `${(w + h) * 2}`, exp: "周長公式" }; },
-                        () => { let a = randInt(1, 99); return { q: `${a} ÷ 100 = ?`, a: `${a / 100}`, exp: "小數位移" }; },
-                        () => { let a = randInt(1, 9), b = randInt(1, 9); return { q: `0.${a} × 10 = ?`, a: `${a}`, exp: "小數x10" }; },
-                        () => { let a = randInt(10, 90); return { q: `${a} ÷ 10 = ?`, a: `${a / 10}`, exp: "÷10位移" }; },
-                        () => { let a = randInt(1000, 9999), b = randInt(1000, 9999); return { q: `${a} + ${b} = ?`, a: `${a + b}`, exp: "大數加法" }; },
-                        () => { let a = randInt(3000, 9999), b = randInt(1000, a - 1); return { q: `${a} - ${b} = ?`, a: `${a - b}`, exp: "大數減法" }; }
+                        // ── 小數乘法計算 ──────────────────────────────────────────
+                        () => { let a=parseFloat((randInt(1,9)/10).toFixed(1)),b=randInt(2,9); let r=parseFloat((a*b).toFixed(1)); return { q:`${a} × ${b} = ?`, a:`${r}`, exp:`一位小數×整數`, tag:'小數乘法' }; },
+                        () => { let a=parseFloat((randInt(10,49)/100).toFixed(2)),b=randInt(2,9); let r=parseFloat((a*b).toFixed(2)); return { q:`${a} × ${b} = ?`, a:`${r}`, exp:`二位小數×整數`, tag:'小數乘法' }; },
+                        () => { let a=parseFloat((randInt(1,9)/10).toFixed(1)),b=randInt(10,25); let r=parseFloat((a*b).toFixed(1)); return { q:`${a} × ${b} = ?`, a:`${r}`, exp:`一位小數×二位整數`, tag:'小數乘法' }; },
+                        () => { let a=parseFloat((randInt(10,49)/100).toFixed(2)),b=randInt(10,20); let r=parseFloat((a*b).toFixed(2)); return { q:`${a} × ${b} = ?`, a:`${r}`, exp:`二位小數×二位整數`, tag:'小數乘法' }; },
+                        // ── 周長與面積計算 ────────────────────────────────────────
+                        () => { let w=randInt(5,20),h=randInt(3,12); return { q:`長${w}cm、寬${h}cm的長方形，周長是幾cm？`, a:`${(w+h)*2}`, exp:`(${w}+${h})×2=${(w+h)*2}`, tag:'周長與面積' }; },
+                        () => { let s=randInt(4,20); return { q:`邊長${s}cm的正方形，周長是幾cm？`, a:`${s*4}`, exp:`${s}×4=${s*4}`, tag:'周長與面積' }; },
+                        () => { let w=randInt(5,20),h=randInt(3,12); return { q:`長${w}cm、寬${h}cm的長方形，面積是幾平方公分？`, a:`${w*h}`, exp:`${w}×${h}=${w*h}`, tag:'周長與面積' }; },
+                        () => { let s=randInt(4,15); return { q:`邊長${s}cm的正方形，面積是幾平方公分？`, a:`${s*s}`, exp:`${s}×${s}=${s*s}`, tag:'周長與面積' }; },
+                        () => { let n=randInt(1,6); return { q:`${n}平方公尺 = 幾平方公分？`, a:`${n*10000}`, exp:`${n}×10000=${n*10000}`, tag:'周長與面積' }; },
+                        () => { let n=randInt(1,9); return { q:`${n*10000}平方公分 = 幾平方公尺？`, a:`${n}`, exp:`${n*10000}÷10000=${n}`, tag:'周長與面積' }; },
+                        // ── 等值分數計算 ──────────────────────────────────────────
+                        () => { let n=randInt(1,4),d=randInt(n+1,6),f=randInt(2,4); return { q:`${n}/${d} = ?/${d*f}（填分子）`, a:`${n*f}`, exp:`${n}×${f}=${n*f}`, tag:'等值分數' }; },
+                        () => { let ch=[{n:1,d:4,dec:'0.25'},{n:1,d:2,dec:'0.5'},{n:3,d:4,dec:'0.75'},{n:1,d:5,dec:'0.2'},{n:2,d:5,dec:'0.4'},{n:1,d:10,dec:'0.1'},{n:3,d:10,dec:'0.3'}]; let c=ch[randInt(0,6)]; return { q:`${c.n}/${c.d} 化成小數 = ?`, a:`${c.dec}`, exp:`${c.n}÷${c.d}=${c.dec}`, tag:'等值分數' }; },
+                        () => { let ch=[{dec:'0.25',fr:'1/4'},{dec:'0.5',fr:'1/2'},{dec:'0.75',fr:'3/4'},{dec:'0.2',fr:'1/5'},{dec:'0.4',fr:'2/5'},{dec:'0.1',fr:'1/10'},{dec:'0.6',fr:'3/5'}]; let c=ch[randInt(0,6)]; return { q:`${c.dec} 化成最簡分數 = ?`, a:`${c.fr}`, exp:`${c.dec}=${c.fr}`, tag:'等值分數' }; },
+                        // ── 時間換算與加減計算 ────────────────────────────────────
+                        () => { let h=randInt(1,5),m=randInt(1,5)*10; return { q:`${h}小時${m}分 = 幾分鐘？`, a:`${h*60+m}`, exp:`${h}×60+${m}=${h*60+m}分鐘`, tag:'時間加減' }; },
+                        () => { let tot=randInt(2,8)*60+randInt(1,5)*10; return { q:`${tot}分鐘 = 幾小時幾分？`, a:`${Math.floor(tot/60)}小時${tot%60}分`, exp:`${tot}÷60`, tag:'時間加減' }; },
+                        () => { let h1=randInt(1,4),m1=randInt(1,4)*10,h2=randInt(1,3),m2=randInt(1,4)*10; let tot=(h1+h2)*60+m1+m2,rh=Math.floor(tot/60),rm=tot%60; return { q:`${h1}時${m1}分 + ${h2}時${m2}分 = 幾時幾分？`, a:`${rh}時${rm}分`, exp:`共${tot}分鐘`, tag:'時間加減' }; },
+                        // ── 體積計算 ──────────────────────────────────────────────
+                        () => { let l=randInt(2,8),w=randInt(2,6),h=randInt(2,5); return { q:`長${l}cm、寬${w}cm、高${h}cm的長方體，體積是幾立方公分？`, a:`${l*w*h}`, exp:`${l}×${w}×${h}=${l*w*h}立方公分`, tag:'立方公分' }; },
+                        () => { let s=randInt(2,7); return { q:`邊長${s}cm的正方體，體積是幾立方公分？`, a:`${s*s*s}`, exp:`${s}×${s}×${s}=${s*s*s}立方公分`, tag:'立方公分' }; },
                     ];
                     qObj = { ...qObj, ...pickTopic(topics) };
                 }
@@ -3929,6 +3964,11 @@
                     fills = extraPool.slice(0, 15);
                     mcqs = extraPool.slice(15, 30);
                     words = extraPool.slice(30, 40);
+                } else if (currentGrade === 1) {
+                    // 四下: 10填充 + 10選擇 + 20應用
+                    fills = generateUniqueMath(10, 'fill', 'calc');
+                    mcqs = generateUniqueMath(10, 'mcq', 'calc');
+                    words = generateUniqueMath(20, 'fill', 'app');
                 } else {
                     fills = generateUniqueMath(15, 'fill', 'calc');
                     mcqs = generateUniqueMath(15, 'mcq', 'calc');
@@ -4281,6 +4321,11 @@
                 part1Title = "一、是非題 (1-10)";
                 part2Title = "二、選擇題 (11-20)";
                 part3Title = "三、小文章選擇題 (21-30)";
+            } else if (currentSubject === 'math' && currentGrade === 1) {
+                // 四下數學: 10+10+20
+                part1Title = "一、填充題 (1-10)";
+                part2Title = "二、選擇題 (11-20)";
+                part3Title = "三、應用題 (21-40)";
             } else {
                 // Other subjects: traditional format with application
                 part1Title = "Part I: 填充題 (1-15)";
